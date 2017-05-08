@@ -11,6 +11,7 @@ public class Main {
 		System.out.println(" "+ perímetro);
 		double teoremaPitag= xeom.teoremaPitagoras(10,10);
 		System.out.println(" "+ teoremaPitag);
-
+		double teoremaPitagB= xeom.teoremaPitagorasB(11,10);
+		System.out.println(" "+ teoremaPitagB);
 	}
 }
