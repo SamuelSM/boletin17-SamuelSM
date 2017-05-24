@@ -7,7 +7,14 @@ import java.util.regex.Pattern;
 public class DNI {
 	private char[] DniLetra = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S',
 			'T', 'V', 'W', 'X', 'Y', 'Z' };
-
+	
+	/**Co boolean comprobaremos que o String nos devolva un DNI
+	 * 
+	 * 
+	 * @param numeroLetra
+	 * @return true se hai DNI correcto, false para DNI falso
+	 */
+	
 	public boolean eValido(String numeroLetra) {
 		boolean correcto = false;
 
@@ -36,6 +43,13 @@ public class DNI {
 	}
 	/* Comparo el string reference con el string letra ignorando los casos de consideración */
 
+	/**Co boolean comprobaremos que o Arraylist nos devolva un DNI
+	 * 
+	 * 
+	 * @param numeroLetra
+	 * @return true se hai DNI correcto, false para DNI falso
+	 */
+	
 	public boolean eValido(ArrayList<Integer> numeros, char letra) {
 		if (numeros.size() == 8) {
 			/* Aquí compruebo que el String tenga el tamaño correcto */
@@ -49,21 +63,34 @@ public class DNI {
 		} else
 			return false;
 	}
+	/**Partindo de un String no que solo pasamos o número, sacaremos a letra que corresponde
+	 * 
+	 * 
+	 * @param numero
+	 * @return letra
+	 */
+	public int calculaLetra(String numero) {		
 
-	public int calculaLetra(String numero) {
-		if (numero.length() != 8)
-			return 0;
-		/* Aquí compruebo que el String tenga la longitud correcta */
+		if (numero.length() == 8) {
+			for (int i = 0; i < numero.length(); i++)
+				if (numero.charAt(i) < '0' || numero.charAt(i) > '9')
+					return -1;
+			/* Aquí compruebo que el String tenga la longitud correcta */
+		} else
+			return -1;
+		
 		int number = Integer.parseInt(numero);
 		/* Transformo la cadena String y hago que devuelva un valor numérico */
-		int modulo = number % 23;
+		int letra = number % 23;
 		/* Aquí fago o modulo*/
-		String Caracteres = "TRWAGMYFPDXBNJZSQVHLCKE";
-		/*Declaro variable String cos Caracteres*/
-		char letra = Caracteres.charAt(modulo);
-		/* Declaro a letra e utilizo esta expresión para que me saque a letra*/
 		return letra;
 	}
+	/**Partindo de un ArrayList no que solo pasamos o número, sacaremos a letra que corresponde
+	 * 
+	 * 
+	 * @param numero
+	 * @return letra
+	 */
 	public int calculaLetra(ArrayList<Integer> numeros) {
 		int numero = 0;
 		if (numeros.size() == 8) {
