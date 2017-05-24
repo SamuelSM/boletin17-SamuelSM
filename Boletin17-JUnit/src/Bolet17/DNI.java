@@ -101,6 +101,6 @@ public class DNI {
 			return letra;
 			/* Aquí fago o modulo*/
 		} else
-			return -1;
+			 return -1;  
 	}
 }
