@@ -97,8 +97,9 @@ public class DNI {
 			/* Aquí compruebo que el String tenga el tamaño correcto */
 			for (int i = 0; i < 8; i++)
 				numero = numero + numeros.get(i);
-			int modulo = numero % 23;
-			return modulo;
+			int letra = numero % 23;
+			return letra;
+			/* Aquí fago o modulo*/
 		} else
 			return -1;
 	}
